@@ -326,11 +326,11 @@ export function AdvancedPortfolio() {
                       style={{ cursor: 'pointer' }}
                     >
                       {/* Image Container */}
-                      <div className={`relative overflow-hidden bg-gray-100 ${project.link ? 'h-72' : 'h-auto'}`}>
+                      <div className="relative h-72 overflow-hidden bg-gray-100">
                         <ImageWithFallback
                           src={project.image}
                           alt={project.title}
-                          className={`w-full transition-transform duration-700 ease-out group-hover:scale-105 ${project.link ? 'h-full object-cover' : 'h-auto object-contain'}`}
+                          className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                         />
                         
                         {/* Overlay Gradient */}
@@ -416,16 +416,20 @@ export function AdvancedPortfolio() {
             </div>
 
             {/* Image */}
-            <motion.img
-              src={lightboxImage.src}
-              alt={lightboxImage.title}
-              className="relative z-10 max-w-full max-h-[90vh] object-contain rounded-2xl shadow-2xl"
+            <motion.div
+              className="relative z-10 flex items-center justify-center w-full h-full"
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
               transition={{ type: "spring", stiffness: 300, damping: 25 }}
               onClick={(e) => e.stopPropagation()}
-            />
+            >
+              <img
+                src={lightboxImage.src}
+                alt={lightboxImage.title}
+                className="max-h-[85vh] max-w-[90vw] w-auto h-auto object-contain rounded-2xl shadow-2xl"
+              />
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
