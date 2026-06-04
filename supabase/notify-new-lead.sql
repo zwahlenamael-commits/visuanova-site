@@ -1,0 +1,53 @@
+-- ============================================
+-- Notification Email pour nouveaux leads
+-- Option 1 : Via Supabase Database Webhooks (recommandé)
+-- Option 2 : Via pg_net (si extension activée)
+-- ============================================
+
+-- OPTION 1 : Database Webhook (recommandé)
+-- ------------------------------------------------
+-- Va dans Supabase Dashboard > Database > Webhooks
+-- Crée un nouveau webhook :
+--   - Nom : notify-new-lead
+--   - Table : leads
+--   - Events : INSERT
+--   - Type : HTTP Request
+--   - Method : POST
+--   - URL : ton webhook n8n (ex: https://n8n.visuanova.ch/webhook/new-lead)
+--
+-- Le payload envoyé contiendra automatiquement :
+-- {
+--   "type": "INSERT",
+--   "table": "leads",
+--   "record": { email, project_description, name, phone, ... },
+--   "old_record": null
+-- }
+
+-- OPTION 2 : Via pg_net (si l'extension est activée)
+-- ------------------------------------------------
+-- D'abord activer l'extension dans le Dashboard > Database > Extensions > pg_net
+
+-- CREATE OR REPLACE FUNCTION notify_new_lead_email()
+-- RETURNS TRIGGER AS $$
+-- BEGIN
+--   PERFORM net.http_post(
+--     url := 'https://n8n.visuanova.ch/webhook/new-lead',
+--     body := json_build_object(
+--       'email', NEW.email,
+--       'name', NEW.name,
+--       'phone', NEW.phone,
+--       'project', NEW.project_description,
+--       'service', NEW.service_type,
+--       'created_at', NEW.created_at
+--     )::text,
+--     headers := '{"Content-Type": "application/json"}'::jsonb
+--   );
+--   RETURN NEW;
+-- END;
+-- $$ LANGUAGE plpgsql;
+--
+-- DROP TRIGGER IF EXISTS on_new_lead ON leads;
+-- CREATE TRIGGER on_new_lead
+--   AFTER INSERT ON leads
+--   FOR EACH ROW
+--   EXECUTE FUNCTION notify_new_lead_email();
