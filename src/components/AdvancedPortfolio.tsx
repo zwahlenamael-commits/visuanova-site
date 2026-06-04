@@ -326,11 +326,11 @@ export function AdvancedPortfolio() {
                       style={{ cursor: 'pointer' }}
                     >
                       {/* Image Container */}
-                      <div className="relative h-72 overflow-hidden bg-gray-100">
+                      <div className={`relative overflow-hidden bg-gray-100 ${project.link ? 'h-72' : 'h-auto'}`}>
                         <ImageWithFallback
                           src={project.image}
                           alt={project.title}
-                          className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                          className={`w-full transition-transform duration-700 ease-out group-hover:scale-105 ${project.link ? 'h-full object-cover' : 'h-auto object-contain'}`}
                         />
                         
                         {/* Overlay Gradient */}
