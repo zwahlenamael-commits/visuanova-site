@@ -127,6 +127,30 @@ export function AdvancedPortfolio() {
       color: "text-orange-500"
     },
     {
+      id: 14,
+      title: "Brew & Co. - Lancement Cold Brew",
+      category: "ads",
+      image: "/portfolio/brew-cold-brew.png",
+      description: "Affiche de lancement pour un nouveau Cold Brew premium — 100% Arabica, infusion à froid",
+      color: "text-orange-500"
+    },
+    {
+      id: 15,
+      title: "Nutelia - Campagne Produit",
+      category: "ads",
+      image: "/portfolio/nutelia-tartiner.png",
+      description: "Visuel publicitaire gourmand pour une pâte à tartiner artisanale — ingrédients naturels, sans huile de palme",
+      color: "text-orange-500"
+    },
+    {
+      id: 16,
+      title: "Pixelia Studio - Services Web",
+      category: "ads",
+      image: "/portfolio/pixelia-sites-web.png",
+      description: "Affiche de présentation des services d'une agence digitale — sites vitrines, e-commerce, sur-mesure",
+      color: "text-orange-500"
+    },
+    {
       id: 6,
       title: "MouthTape - Santé & Bien-être",
       category: "web",
