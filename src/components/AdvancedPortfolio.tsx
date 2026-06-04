@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Instagram, Globe, Megaphone, ExternalLink, ArrowLeft, ArrowRight, Sparkles } from "lucide-react";
+import { Instagram, Globe, Megaphone, ExternalLink, ArrowLeft, ArrowRight, Sparkles, X, ZoomIn } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { Button } from "./ui/button";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
@@ -20,6 +20,7 @@ interface Project {
 export function AdvancedPortfolio() {
   const [selectedCategory, setSelectedCategory] = useState<Category | null>(null);
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
+  const [lightboxImage, setLightboxImage] = useState<{src: string, title: string} | null>(null);
 
   const categories = [
     { 
@@ -315,8 +316,14 @@ export function AdvancedPortfolio() {
                       whileHover={{ y: -10 }}
                       onHoverStart={() => setHoveredProject(project.id)}
                       onHoverEnd={() => setHoveredProject(null)}
-                      onClick={() => project.link && window.open(project.link, '_blank')}
-                      style={{ cursor: project.link ? 'pointer' : 'default' }}
+                      onClick={() => {
+                        if (project.link) {
+                          window.open(project.link, '_blank');
+                        } else {
+                          setLightboxImage({ src: project.image, title: project.title });
+                        }
+                      }}
+                      style={{ cursor: 'pointer' }}
                     >
                       {/* Image Container */}
                       <div className="relative h-72 overflow-hidden bg-gray-100">
@@ -329,17 +336,15 @@ export function AdvancedPortfolio() {
                         {/* Overlay Gradient */}
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
                         
-                        {/* Floating Link Icon */}
-                        {project.link && (
-                          <motion.div 
-                            className="absolute top-4 right-4 bg-white/20 backdrop-blur-md p-2 rounded-full border border-white/30 text-white"
-                            initial={{ scale: 0, opacity: 0 }}
-                            animate={{ scale: 1, opacity: 1 }}
-                            whileHover={{ scale: 1.1, backgroundColor: "rgba(255,255,255,0.3)" }}
-                          >
-                            <ExternalLink className="w-5 h-5" />
-                          </motion.div>
-                        )}
+                        {/* Floating Icon */}
+                        <motion.div
+                          className="absolute top-4 right-4 bg-white/20 backdrop-blur-md p-2 rounded-full border border-white/30 text-white"
+                          initial={{ scale: 0, opacity: 0 }}
+                          animate={{ scale: 1, opacity: 1 }}
+                          whileHover={{ scale: 1.1, backgroundColor: "rgba(255,255,255,0.3)" }}
+                        >
+                          {project.link ? <ExternalLink className="w-5 h-5" /> : <ZoomIn className="w-5 h-5" />}
+                        </motion.div>
 
                         {/* Content Overlay */}
                         <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
@@ -383,6 +388,47 @@ export function AdvancedPortfolio() {
           )}
         </AnimatePresence>
       </div>
+
+      {/* Lightbox Modal */}
+      <AnimatePresence>
+        {lightboxImage && (
+          <motion.div
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setLightboxImage(null)}
+          >
+            {/* Backdrop */}
+            <div className="absolute inset-0 bg-black/90 backdrop-blur-sm" />
+
+            {/* Close button */}
+            <button
+              onClick={() => setLightboxImage(null)}
+              className="absolute top-6 right-6 z-10 bg-white/10 hover:bg-white/20 backdrop-blur-md p-3 rounded-full border border-white/20 text-white transition-colors"
+            >
+              <X className="w-6 h-6" />
+            </button>
+
+            {/* Title */}
+            <div className="absolute top-6 left-6 z-10">
+              <h3 className="text-white text-lg font-semibold">{lightboxImage.title}</h3>
+            </div>
+
+            {/* Image */}
+            <motion.img
+              src={lightboxImage.src}
+              alt={lightboxImage.title}
+              className="relative z-10 max-w-full max-h-[90vh] object-contain rounded-2xl shadow-2xl"
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 300, damping: 25 }}
+              onClick={(e) => e.stopPropagation()}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
