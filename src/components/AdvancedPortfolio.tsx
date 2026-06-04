@@ -79,10 +79,26 @@ export function AdvancedPortfolio() {
     },
     {
       id: 5,
-      title: "Campagne Facebook Ads - Restaurant",
+      title: "ReviewPilot - Campagne Produit",
       category: "ads",
-      image: "https://images.unsplash.com/photo-1765371514743-45bd8e6c0a28?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkZXNpZ25lciUyMHdvcmtzcGFjZSUyMG1vZGVybiUyMG1pbmltYWx8ZW58MXx8fHwxNzY2OTM3NTczfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      description: "Visuels publicitaires pour promotion menu saisonnier",
+      image: "/portfolio/reviewpilot-reputation.png",
+      description: "Affiches publicitaires pour une plateforme SaaS de gestion d'avis Google avec cartes NFC",
+      color: "text-orange-500"
+    },
+    {
+      id: 9,
+      title: "ReviewPilot - Carte NFC",
+      category: "ads",
+      image: "/portfolio/reviewpilot-carte-nfc.png",
+      description: "Visuel de lancement pour la carte NFC intelligente qui booste la réputation en ligne",
+      color: "text-orange-500"
+    },
+    {
+      id: 10,
+      title: "ReviewPilot - IA & Automatisation",
+      category: "ads",
+      image: "/portfolio/reviewpilot-ia-robot.png",
+      description: "Affiche mettant en avant l'IA de réponse automatique aux avis Google, disponible 24/7",
       color: "text-orange-500"
     },
     {
