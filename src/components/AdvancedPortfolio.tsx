@@ -103,6 +103,30 @@ export function AdvancedPortfolio() {
       color: "text-orange-500"
     },
     {
+      id: 11,
+      title: "ReviewPilot - Plateforme SaaS",
+      category: "ads",
+      image: "/portfolio/reviewpilot-saas-complet.png",
+      description: "Visuel complet présentant la plateforme : carte NFC, dashboard intelligent et réponses IA automatiques",
+      color: "text-orange-500"
+    },
+    {
+      id: 12,
+      title: "ReviewPilot - Réponses IA",
+      category: "ads",
+      image: "/portfolio/reviewpilot-ia-reponses.png",
+      description: "Affiche feature mettant en avant les réponses instantanées et intelligentes aux avis Google",
+      color: "text-orange-500"
+    },
+    {
+      id: 13,
+      title: "ReviewPilot - LIA Assistant",
+      category: "ads",
+      image: "/portfolio/reviewpilot-lia-produit.png",
+      description: "Présentation complète du produit avec l'assistant IA LIA, cartes NFC et gestion de la e-réputation",
+      color: "text-orange-500"
+    },
+    {
       id: 6,
       title: "MouthTape - Santé & Bien-être",
       category: "web",
