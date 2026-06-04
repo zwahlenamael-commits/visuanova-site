@@ -393,41 +393,36 @@ export function AdvancedPortfolio() {
       <AnimatePresence>
         {lightboxImage && (
           <motion.div
-            className="fixed inset-0 z-[100] flex items-center justify-center p-4"
+            className="fixed inset-0 z-[100] flex items-center justify-center"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setLightboxImage(null)}
           >
             {/* Backdrop */}
-            <div className="absolute inset-0 bg-black/90 backdrop-blur-sm" />
+            <div className="absolute inset-0 bg-black/95" />
 
             {/* Close button */}
             <button
               onClick={() => setLightboxImage(null)}
-              className="absolute top-6 right-6 z-10 bg-white/10 hover:bg-white/20 backdrop-blur-md p-3 rounded-full border border-white/20 text-white transition-colors"
+              className="absolute top-4 right-4 z-20 bg-white/10 hover:bg-white/20 p-2 rounded-full text-white transition-colors"
             >
-              <X className="w-6 h-6" />
+              <X className="w-5 h-5" />
             </button>
 
-            {/* Title */}
-            <div className="absolute top-6 left-6 z-10">
-              <h3 className="text-white text-lg font-semibold">{lightboxImage.title}</h3>
-            </div>
-
-            {/* Image */}
+            {/* Image — uses 100% of screen, padded just enough */}
             <motion.div
-              className="relative z-10 flex items-center justify-center w-full h-full"
-              initial={{ scale: 0.8, opacity: 0 }}
+              className="relative z-10 w-screen h-screen p-2 flex items-center justify-center"
+              initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.8, opacity: 0 }}
-              transition={{ type: "spring", stiffness: 300, damping: 25 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ duration: 0.2 }}
               onClick={(e) => e.stopPropagation()}
             >
               <img
                 src={lightboxImage.src}
                 alt={lightboxImage.title}
-                className="max-h-[85vh] max-w-[90vw] w-auto h-auto object-contain rounded-2xl shadow-2xl"
+                style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }}
               />
             </motion.div>
           </motion.div>
