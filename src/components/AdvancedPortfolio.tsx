@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { Instagram, Globe, Megaphone, ExternalLink, ArrowLeft, ArrowRight, Sparkles, X, ZoomIn } from "lucide-react";
+import { Globe, Megaphone, ExternalLink, ArrowLeft, ArrowRight, Sparkles, X, ZoomIn } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { Button } from "./ui/button";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { cn } from "./ui/utils";
 
-type Category = "instagram" | "web" | "ads";
+type Category = "web" | "ads";
 
 interface Project {
   id: number;
@@ -23,18 +23,9 @@ export function AdvancedPortfolio() {
   const [lightboxImage, setLightboxImage] = useState<{src: string, title: string} | null>(null);
 
   const categories = [
-    { 
-      id: "instagram" as Category, 
-      label: "Instagram", 
-      icon: Instagram,
-      description: "Posts, stories et carrousels pour réseaux sociaux",
-      color: "from-pink-500 to-purple-600",
-      accent: "text-pink-500",
-      bgHover: "hover:shadow-pink-500/20"
-    },
-    { 
-      id: "web" as Category, 
-      label: "Sites Web", 
+    {
+      id: "web" as Category,
+      label: "Sites Web",
       icon: Globe,
       description: "Sites vitrines, portfolios et landing pages",
       color: "from-blue-500 to-cyan-600",
@@ -53,22 +44,6 @@ export function AdvancedPortfolio() {
   ];
 
   const projects: Project[] = [
-    {
-      id: 1,
-      title: "Campagne Instagram - Marque Mode",
-      category: "instagram",
-      image: "https://images.unsplash.com/photo-1695634621121-691d54259d37?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxncmFwaGljJTIwZGVzaWduJTIwbW9ja3VwJTIwcG9ydGZvbGlvfGVufDF8fHx8MTc2NjkzNzU3M3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      description: "Création de posts et stories pour une marque de mode suisse",
-      color: "text-pink-500"
-    },
-    {
-      id: 2,
-      title: "Posts Instagram - Coach Sportif",
-      category: "instagram",
-      image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-      description: "Carrousels et stories pour augmenter l'engagement",
-      color: "text-pink-500"
-    },
     {
       id: 3,
       title: "Site Web - Centre de Basketball",
@@ -255,7 +230,7 @@ export function AdvancedPortfolio() {
 
               {/* Category Cards */}
               <motion.div 
-                className="grid sm:grid-cols-2 lg:grid-cols-2 gap-8 max-w-5xl mx-auto"
+                className="grid sm:grid-cols-2 gap-8 max-w-4xl mx-auto"
                 variants={containerVariants}
                 initial="hidden"
                 animate="show"

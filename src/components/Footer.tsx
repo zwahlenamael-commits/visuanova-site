@@ -1,4 +1,4 @@
-import { Instagram, Facebook, Linkedin, Mail, MapPin, ArrowUpRight } from "lucide-react";
+import { Facebook, Linkedin, Mail, MapPin, ArrowUpRight } from "lucide-react";
 import { useState } from "react";
 import { Logo } from "./Logo";
 import { ScrollReveal } from "./ui/ScrollReveal";
@@ -39,7 +39,6 @@ export function Footer() {
               </p>
               <div className="flex items-center gap-4">
                 {[
-                  { icon: Instagram, href: "https://instagram.com/visuanova.studio", label: "Instagram" },
                   { icon: Facebook, href: "https://facebook.com/visuanovastudio", label: "Facebook" },
                   { icon: Linkedin, href: "https://linkedin.com/company/visuanova-studio", label: "LinkedIn" }
                 ].map((social, i) => (

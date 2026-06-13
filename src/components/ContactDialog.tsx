@@ -109,7 +109,7 @@ Cet email a été envoyé depuis le formulaire de contact du site VisuaNova Stud
             <Label htmlFor="theme">Thème / Service *</Label>
             <Input
               id="theme"
-              placeholder="Ex: Flyers, Stories Instagram..."
+              placeholder="Ex: Flyers, Posts réseaux sociaux..."
               value={formData.theme}
               onChange={(e) => setFormData({ ...formData, theme: e.target.value })}
               required

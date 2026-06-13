@@ -11,7 +11,7 @@ export function FAQ() {
   const faqs = [
     {
       question: "Quels types de services proposez-vous ?",
-      answer: "VisuaNova Studio propose trois services principaux : la création de visuels pour les réseaux sociaux (Instagram, Facebook), la conception de sites web modernes et performants, et la création d'affiches publicitaires print et digital. Chaque projet est pensé sur mesure pour répondre à vos objectifs."
+      answer: "VisuaNova Studio propose trois services principaux : la création de visuels pour les réseaux sociaux, la conception de sites web modernes et performants, et la création d'affiches publicitaires print et digital. Chaque projet est pensé sur mesure pour répondre à vos objectifs."
     },
     {
       question: "Combien coûte un projet ?",

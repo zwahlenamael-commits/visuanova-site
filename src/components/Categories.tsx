@@ -7,7 +7,7 @@ export function Categories() {
 
   const categories = [
     "Flyers",
-    "Stories Instagram",
+    "Stories & Réels",
     "Posts Publicitaires",
     "Carrousels",
     "Bannières Site",

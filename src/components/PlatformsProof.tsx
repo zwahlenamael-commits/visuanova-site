@@ -1,11 +1,11 @@
-import { Instagram, Facebook, ShoppingCart, Globe } from "lucide-react";
+import { Megaphone, Globe, ShoppingCart, Palette } from "lucide-react";
 import { motion } from "motion/react";
 import { ScrollReveal } from "./ui/ScrollReveal";
 
 export function PlatformsProof() {
   const platforms = [
-    { icon: Instagram, name: "Instagram", color: "#E4405F", gradient: "from-pink-500 to-rose-500" },
-    { icon: Facebook, name: "Facebook Ads", color: "#1877F2", gradient: "from-blue-600 to-indigo-600" },
+    { icon: Palette, name: "Réseaux Sociaux", color: "#E4405F", gradient: "from-pink-500 to-rose-500" },
+    { icon: Megaphone, name: "Publicités", color: "#1877F2", gradient: "from-blue-600 to-indigo-600" },
     { icon: ShoppingCart, name: "E-commerce", color: "#2ECC71", gradient: "from-green-500 to-emerald-500" },
     { icon: Globe, name: "Sites Web", color: "#1ABC9C", gradient: "from-teal-400 to-cyan-400" }
   ];

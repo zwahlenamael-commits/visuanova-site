@@ -9,8 +9,8 @@ export function Services() {
     {
       icon: Palette,
       title: "Design Réseaux Sociaux",
-      description: "Posts Instagram, carrousels, stories et visuels Facebook Ads optimisés pour l'engagement et les conversions de votre audience",
-      features: ["Instagram & Facebook", "Stories animées", "Formats optimisés"],
+      description: "Posts, carrousels, stories et visuels publicitaires optimisés pour l'engagement et les conversions sur tous vos réseaux sociaux",
+      features: ["Tous réseaux sociaux", "Stories animées", "Formats optimisés"],
       color: "#E4405F",
       gradient: "from-pink-500 to-rose-500"
     },

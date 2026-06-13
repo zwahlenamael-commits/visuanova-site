@@ -1,9 +1,9 @@
-import { Facebook, Instagram, Video, ShoppingBag } from "lucide-react";
+import { Facebook, Palette, Video, ShoppingBag } from "lucide-react";
 
 export function SocialProof() {
   const platforms = [
     { name: "Meta", icon: Facebook },
-    { name: "Instagram", icon: Instagram },
+    { name: "Réseaux Sociaux", icon: Palette },
     { name: "TikTok", icon: Video },
     { name: "Shopify", icon: ShoppingBag }
   ];
