@@ -144,14 +144,16 @@ export function IntroAnimation({ onScrollDown }: IntroAnimationProps) {
         </motion.div>
 
         <div className="overflow-hidden">
-          <motion.h1 
+          <motion.div
+            role="heading"
+            aria-level={2}
             className="text-4xl sm:text-6xl md:text-8xl font-bold tracking-tighter text-white mb-6"
             initial={{ y: 100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
           >
             VisuaNova <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2ECC71] to-[#1ABC9C]">Studio</span>
-          </motion.h1>
+          </motion.div>
         </div>
 
         <motion.p
